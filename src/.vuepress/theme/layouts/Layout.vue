@@ -19,21 +19,23 @@
 
 <script>
 import LayoutBase from './LayoutBase'
+import NavMobile from '../components/NavMobile.vue'
+import EventBus from '../plugins/EventBus.js'
 export default {
   components: {
     LayoutBase,
-    NavMobile: import(
-      /* webpackChunkName = "NavMobile" */ '../components/NavMobile'
-    ),
+    NavMobile,
   },
   data() {
     return {
-      nmOpened: true,
+      nmOpened: false,
       negative: false,
     }
   },
   created() {
-    console.log(this.$page)
+    EventBus.$on('show_nm', (data) => {
+      this.nmOpened = data
+    })
   },
   computed: {
     layout() {
@@ -50,6 +52,23 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+.icon {
+  font-family: 'ktquez' !important;
+  position: relative;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  letter-spacing: 0;
+  font-feature-settings: 'liga';
+  font-variant-ligatures: discretionary-ligatures;
 }
 @font-face {
   font-family: 'Poppins';
@@ -90,8 +109,18 @@ export default {
   padding: 0;
 }
 
+.layout-main__nm--opened {
+  background-color: #304255;
+}
+
 .wrapper-body__nm {
   transition: transform 0.2s ease-in-out;
   transform-origin: top center;
+}
+
+.wrapper-body__nm--opened {
+  border-radius: 20px;
+  overflow: hidden;
+  transform: perspective(400px) scale3d(0.85, 0.85, 1);
 }
 </style>

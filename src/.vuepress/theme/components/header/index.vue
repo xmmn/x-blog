@@ -17,6 +17,7 @@
 import Hamburguer from '../Hamburguer.vue'
 import Search from './Search.vue'
 import Navigation from './Navigation.vue'
+import EventBus from '../../plugins/EventBus.js'
 export default {
   components: { Hamburguer, Search, Navigation },
   data() {
@@ -27,7 +28,13 @@ export default {
   methods: {
     toggleMenuMobile() {
       this.openMenu = !this.openMenu
+      EventBus.$emit('show_nm', this.openMenu)
     },
+  },
+  created() {
+    EventBus.$on('close_nm', (data) => {
+      this.openMenu = data
+    })
   },
 }
 </script>

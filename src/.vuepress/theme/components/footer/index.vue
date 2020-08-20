@@ -74,8 +74,8 @@
 </template>
 
 <script>
-import LazyLoad from '../lazy/load.vue'
-import CardAuthor from '../CardAuthor.vue'
+import LazyLoad from '@theme/components/lazy/load.vue'
+import CardAuthor from '@theme/components/CardAuthor.vue'
 export default {
   name: 'Footer',
   components: { LazyLoad, CardAuthor },

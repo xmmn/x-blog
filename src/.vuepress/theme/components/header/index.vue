@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import Hamburguer from '../Hamburguer.vue'
-import Search from './Search.vue'
-import Navigation from './Navigation.vue'
-import EventBus from '../../plugins/EventBus.js'
+import Hamburguer from '@theme/components/Hamburguer.vue'
+import Search from '@theme/components/header/Search.vue'
+import Navigation from '@theme/components/header/Navigation.vue'
+import EventBus from '@theme/plugins/EventBus.js'
 export default {
   components: { Hamburguer, Search, Navigation },
   data() {

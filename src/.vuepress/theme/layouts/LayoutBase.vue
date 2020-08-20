@@ -8,8 +8,8 @@
   </div>
 </template>
 <script>
-import XHeader from '../components/header'
-import XFooter from '../components/footer'
+import XHeader from '@theme/components/header'
+import XFooter from '@theme/components/footer'
 export default {
     name: 'layoutbase',
     components: {

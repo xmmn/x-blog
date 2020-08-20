@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Spinner from '../Spinner.vue'
+import Spinner from '@theme/components/Spinner.vue'
 
 export default {
   name: 'LazyLoadIntersectionObserver',

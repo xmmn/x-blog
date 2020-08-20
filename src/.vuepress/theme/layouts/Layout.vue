@@ -57,6 +57,11 @@ a {
   text-decoration: none;
 }
 
+ul,
+ol {
+  list-style-type: none;
+}
+
 .icon {
   font-family: 'ktquez' !important;
   position: relative;

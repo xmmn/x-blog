@@ -50,7 +50,30 @@
             <card-author />
           </lazy-load>
         </div>
-        <div class="column sm-50 footer-nav"></div>
+        <div class="column sm-50 footer-nav">
+          <div class="row justify-right">
+            <div class="footer-nav__box footer-nav__box--1">
+              <h2 class="meta-text title">More</h2>
+              <nav class="footer-nav1">
+                <ul>
+                  <li
+                    class="footer-nav1__item"
+                    v-for="(item, index) in navItems"
+                    :key="`${item.label}-${index}`"
+                  >
+                    <router-link style="color: #fff" v-if="item.path" :to="item.path">{{ item.label }}</router-link>
+                    <a
+                      v-if="item.link"
+                      :href="item.link"
+                      rel="noopener nofollow"
+                      target="_blank"
+                    >{{ item.label }}</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
       </div>
       <span class="shapes shapes--circle" style="left: 3%; top: -20%"></span>
       <span class="shapes shapes--primary shapes--color3" style="left: 30%; top: -15%"></span>
@@ -80,6 +103,12 @@ export default {
         {
           name: 'github',
           link: 'https://github.com/xmmn',
+        },
+      ],
+      navItems: [
+        {
+          label: 'one',
+          path: '/one',
         },
       ],
     }
@@ -178,6 +207,10 @@ export default {
   display: flex;
 }
 
+.justify-right {
+  justify-content: flex-end;
+}
+
 .column {
   flex: 0 0 100%;
   padding-left: 0.9375rem;
@@ -191,4 +224,31 @@ export default {
 .footer-card {
   position: relative;
 }
+</style>
+
+<style scoped>
+.footer-nav__box--1 {
+  text-align: left;
+  padding-left: 5vw !important;
+}
+
+.footer-nav__box {
+  width: 50%;
+}
+
+.meta-text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.footer-nav .title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+.footer-nav1,
+.footer-nav2 {
+  margin-top: 10px;
+}
+
 </style>

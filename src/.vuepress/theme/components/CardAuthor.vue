@@ -37,7 +37,7 @@
             >
               <a
                 itemprop="sameAs"
-                :href="network.url"
+                :href="network.link"
                 class="card-author-social__link"
                 rel="nofollow noopener"
                 target="_blank"

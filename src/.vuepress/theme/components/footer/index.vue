@@ -25,26 +25,7 @@
           transform="translate(1506 4971)"
         />
       </svg>
-      <ul class="footer-social__list">
-        <li
-          class="footer-social__item"
-          v-for="(network, index) in social"
-          :key="`${network.name}-${index}`"
-        >
-          <a
-            :href="network.link"
-            target="_blank"
-            rel="noopener external"
-            title="Follow us on Facebook"
-          >
-            <span class="icon footer-social__icon">{{ network.name }}</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <section class="footer-box3">
-      <div class="row">
+      <div class="row" style="padding-top: 60px">
         <div class="column sm-50 footer-card">
           <lazy-load>
             <card-author />
@@ -61,7 +42,11 @@
                     v-for="(item, index) in navItems"
                     :key="`${item.label}-${index}`"
                   >
-                    <router-link style="color: #fff" v-if="item.path" :to="item.path">{{ item.label }}</router-link>
+                    <router-link
+                      style="color: #fff"
+                      v-if="item.path"
+                      :to="item.path"
+                    >{{ item.label }}</router-link>
                     <a
                       v-if="item.link"
                       :href="item.link"
@@ -77,17 +62,14 @@
       </div>
       <span class="shapes shapes--circle" style="left: 3%; top: -20%"></span>
       <span class="shapes shapes--primary shapes--color3" style="left: 30%; top: -15%"></span>
-      <span class="shapes shapes--primary" style="left: 13%; top: -80%; transform: rotate(45deg)"></span>
       <span class="shapes shapes--circle shapes--color4" style="left: 40%; top: 200px"></span>
       <span class="shapes shapes--primary" style="left: 15%; bottom: 10%; transform: rotate(75deg)"></span>
       <span class="shapes shapes--circle shapes--color3" style="right: 50%; top: 30%"></span>
-      <span class="shapes shapes--primary" style="right: 20%; top: -100%"></span>
       <span class="shapes shapes--circle" style="right: 10%; top: -20%"></span>
       <span class="shapes shapes--color4" style="right: 35%; top: -20%; transform: rotate(45deg)"></span>
-      <span class="shapes shapes--circle" style="left: 40%; top: -50%"></span>
       <span class="shapes shapes--color3" style="right: 30%; top: 20%"></span>
       <span class="shapes shapes--circle shapes--primary" style="right: 30%; bottom: 20%"></span>
-    </section>
+    </div>
   </footer>
 </template>
 
@@ -250,5 +232,4 @@ export default {
 .footer-nav2 {
   margin-top: 10px;
 }
-
 </style>

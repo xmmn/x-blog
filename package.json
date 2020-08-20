@@ -1,0 +1,30 @@
+{
+  "name": "x-blog",
+  "version": "1.0.0",
+  "description": "A blog created by VuePress.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xmmn/x-blog.git"
+  },
+  "keywords": [
+    "blog",
+    "VuePress",
+    "Vue"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xmmn/x-blog/issues"
+  },
+  "homepage": "https://github.com/xmmn/x-blog#readme",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {
+    "vuepress-theme-ktquez": "^0.2.18"
+  }
+}

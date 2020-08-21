@@ -10,10 +10,11 @@ module.exports = {
                 config
                     .output
                     .publicPath('/x-blog/')
+            } else {
+                config
+                    .output
+                    .publicPath('/')
             }
-            config
-                .output
-                .publicPath('/')
         }
     },
     configureWebpack: (config, isServer) => {

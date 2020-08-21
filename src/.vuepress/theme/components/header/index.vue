@@ -1,65 +1,13 @@
 <template>
-  <div class="row">
-    <navigation class="header-navigation" v-if="$themeConfig.topNavigation" />
-    <div class="column xs-33">
-      <hamburguer class="header-top__hamburguer" :open="openMenu" @click="toggleMenuMobile" />
-    </div>
-    <div class="column xs-33">
-      <!--返回首页-->
-    </div>
-    <div class="column xs-33">
-      <search />
-    </div>
-  </div>
+    
 </template>
 
 <script>
-import Hamburguer from '@theme/components/Hamburguer.vue'
-import Search from '@theme/components/header/Search.vue'
-import Navigation from '@theme/components/header/Navigation.vue'
-import EventBus from '@theme/plugins/EventBus.js'
 export default {
-  components: { Hamburguer, Search, Navigation },
-  data() {
-    return {
-      openMenu: false,
-    }
-  },
-  methods: {
-    toggleMenuMobile() {
-      this.openMenu = !this.openMenu
-      EventBus.$emit('show_nm', this.openMenu)
-    },
-  },
-  created() {
-    EventBus.$on('close_nm', (data) => {
-      this.openMenu = data
-    })
-  },
+    
 }
 </script>
 
-<style scoped>
-.row {
-  position: relative;
-  padding: 30px 20px 24px;
-  background-color: #fff;
-  display: flex;
-}
+<style lang="less" scoped>
 
-.header-top__hamburguer {
-  position: relative;
-  transform: rotate(90deg);
-}
-
-.column {
-  display: flex;
-  align-items: center;
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
-}
-
-.xs-33 {
-  flex: 1;
-}
 </style>

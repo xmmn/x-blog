@@ -1,4 +1,5 @@
 @import './_font.less';
+@import './_post.less';
 
 body {
     background-color: #eaeaea;
@@ -60,3 +61,70 @@ nav ul a {
     padding: 0 15px;
     cursor: pointer;
 }
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.row .col {
+  float: left;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 0.75rem;
+  min-height: 1px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row {
+  width: 100%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+.col.s12 {
+  width: 100%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+
+@media only screen and (min-width: 601px) {
+  .row {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .col.m12 {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .row {
+    width: 75%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .col.l9 {
+    width: 75%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+}
+
+
+code[class*="language-"],
+ pre[class*="language-"] {
+    white-space: pre !important; 
+  }

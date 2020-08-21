@@ -1,5 +1,6 @@
 ---
 view: post
+isPost: true
 lang: en                              # Lang is required
 author: ktquez
 title: My First post

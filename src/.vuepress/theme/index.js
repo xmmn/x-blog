@@ -6,6 +6,11 @@ module.exports = {
     serviceWorker: true,
     chainWebpack: (config, isServer) => {
         if (!isServer) {
+            if (process.env.NODE_ENV === 'production') {
+                config
+                    .output
+                    .publicPath('/x-blog/')
+            }
             config
                 .output
                 .publicPath('/')

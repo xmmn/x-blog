@@ -1,6 +1,6 @@
 
 module.exports = {
-  base: process.env.NODE_ENV === 'production' ? '/xmmn/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/x-blog/' : '/',
   title: `MY ITLIFE`,
   theme: './theme/index.js',
   themeConfig: {

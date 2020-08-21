@@ -1,6 +1,6 @@
 
 module.exports = {
-  base: '/',
+  base: process.env.NODE_ENV === 'production' ? '/xmmn/' : '/',
   title: `MY ITLIFE`,
   theme: './theme/index.js',
   themeConfig: {
@@ -18,5 +18,8 @@ module.exports = {
         icon: 'fa-tags',
       }
     ],
+    banners: [
+      1, 2, 3, 4, 5
+    ]
   }
 }

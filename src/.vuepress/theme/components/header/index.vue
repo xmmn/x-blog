@@ -28,8 +28,10 @@ export default {
       bodyMoved: false,
     }
   },
-  created() {
-    window.addEventListener('scroll', this.getScrollTop)
+  mounted() {
+    import('@theme/utils/global.js').then(() => {
+      window.addEventListener('scroll', this.getScrollTop)
+    })
   },
   methods: {
     getScrollTop() {
@@ -44,7 +46,9 @@ export default {
   },
 
   beforeDestroy() {
-    window.removeEventListener('scroll', this.getScrollTop)
+    import('@theme/utils/global.js').then(() => {
+      window.removeEventListener('scroll', this.getScrollTop)
+    })
   },
 }
 </script>

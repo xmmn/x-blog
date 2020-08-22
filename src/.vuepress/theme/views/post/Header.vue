@@ -3,7 +3,7 @@
     <div class="row tag-cate">
       <div class="col s7">
         <div class="article-tag">
-          <a :href="tag.path" v-for="(tag, index) in postInfo.tags" :key="index">
+          <a :href="goto(tag.path)" v-for="(tag, index) in postInfo.tags" :key="index">
             <span class="chip bg-color">{{tag.label}}</span>
           </a>
         </div>
@@ -13,7 +13,7 @@
           <template v-for="(cat, index) in postInfo.categories">
             <i class="fas fa-bookmark fa-fw icon-category" :key="`icon-${index}`"></i>
 
-            <a :href="cat.path" class="post-category" :key="`a-${index}`">{{cat.label}}</a>
+            <a :href="goto(cat.path)" class="post-category" :key="`a-${index}`">{{cat.label}}</a>
           </template>
         </div>
       </div>
@@ -60,7 +60,7 @@ export default {
     readTimeText() {
       return `${((this.textlen * perTextReadSeconds) / 60).toFixed(2)}分`;
     },
-  },
+  }
 };
 </script>
 

@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     view() {
-      console.log(this.$frontmatter.view || "home")
+      console.log(this)
       return this.$frontmatter.view || "home";
     },
   },

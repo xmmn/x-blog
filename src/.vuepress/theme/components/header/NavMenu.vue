@@ -10,7 +10,7 @@
       @mouseenter="enter(index)"
       @mouseleave="leave"
     >
-      <a href="/" class="waves-effect waves-light">
+      <a :href="goto('/')" class="waves-effect waves-light">
         <i class="fas" :class="nav.icon" style="zoom: 0.6;"></i>
         <span>{{nav.name}}</span>
       </a>

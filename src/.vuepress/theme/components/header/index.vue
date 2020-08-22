@@ -113,19 +113,5 @@ export default {
     }
   }
 }
-@media only screen and (min-width: 601px) {
-  .navbar-fixed {
-    height: 64px;
-  }
-
-  nav,
-  nav .nav-wrapper i,
-  nav a.sidenav-trigger,
-  nav a.sidenav-trigger i {
-    height: 64px;
-    line-height: 64px;
-  }
-}
-
 
 </style>

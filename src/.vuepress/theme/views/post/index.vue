@@ -191,7 +191,9 @@ export default {
     padding: 0 0.75rem;
   }
 }
-
+.card{
+  border-radius: 8px;
+}
 .card-content {
   padding: 0 15px 20px 18px;
 }

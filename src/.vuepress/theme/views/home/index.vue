@@ -1,7 +1,18 @@
 <template>
   <article id="articles" class="container articles">
     <div class="row article-row">
-      <div class="article col s12 m6 l4" v-for="article in articles" :key="article.key">
+      <div
+        class="article col s12 m6 l4 aos-init aos-animate"
+        :class="{
+          animated: currentHover === index,
+          pulse: currentHover === index
+        }"
+        data-aos="zoom-in"
+        v-for="(article, index) in articles"
+        :key="article.key"
+        @mouseenter="enter(index)"
+        @mouseleave="leave"
+      >
         <div class="card">
           <a :href="goto(article.path)">
             <div class="card-image">
@@ -12,10 +23,7 @@
           </a>
 
           <div class="card-content article-content">
-            <div class="summary block-with-text">
-              一个 bug 被隐藏的时间越长，修复这个 bug 的代价就越大。
-              我曾经在 单元测试指南 一文中写到过单元测试的必要性和 Java 单元测试相关的工具及方法。单元测试能帮助我们在早期就规避、发现和修复很多不易察觉的 bug 和漏洞，而且
-            </div>
+            <div class="summary block-with-text">{{article.frontmatter.description}}</div>
             <div class="publish-info">
               <span class="publish-date">
                 <i class="far fa-clock fa-fw icon-date"></i>
@@ -43,7 +51,13 @@
 </template>
 
 <script>
+import "aos/dist/aos.css";
 export default {
+  data() {
+    return {
+      currentHover: -1,
+    };
+  },
   computed: {
     pages() {
       return this.$site.pages || [];
@@ -53,5 +67,64 @@ export default {
       return this.pages.filter((m) => m.frontmatter.isPost);
     },
   },
+
+  mounted() {
+    import("aos").then((module) => {
+      const AOS = module.default;
+      AOS.init();
+    });
+  },
+
+  methods: {
+    enter(index) {
+      this.currentHover = index;
+    },
+    leave() {
+      this.currentHover = -1;
+    },
+  },
 };
 </script>
+
+<style scoped>
+.pulse {
+  position: relative;
+  animation: mymove 2s infinite;
+  -webkit-animation: mymove 2s infinite; /*Safari and Chrome*/
+  animation-direction: alternate; /*轮流反向播放动画。*/
+  animation-timing-function: ease-in-out; /*动画的速度曲线*/
+  /* Safari 和 Chrome */
+  -webkit-animation: mymove 2s infinite;
+  -webkit-animation-direction: alternate; /*轮流反向播放动画。*/
+  -webkit-animation-timing-function: ease-in-out; /*动画的速度曲线*/
+}
+@keyframes mymove {
+  0% {
+    transform: scale(1); /*开始为原始大小*/
+  }
+  25% {
+    transform: scale(1.1); /*放大1.1倍*/
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+@-webkit-keyframes mymove /*Safari and Chrome*/ {
+  0% {
+    transform: scale(1); /*开始为原始大小*/
+  }
+  25% {
+    transform: scale(1.1); /*放大1.1倍*/
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+</style>

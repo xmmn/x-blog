@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="main-content col s12 m12 l9">
-      <div od="artDetail" class="artDetail">
+      <div id="artDetail" class="artDetail">
         <div class="card">
           <post-header :textlen="textlen" />
           <hr class="clearfix" />
@@ -156,6 +156,35 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@media only screen and (min-width: 601px) {
+  .row {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .col.m12 {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .row {
+    width: 75%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .col.l9 {
+    width: 75%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+}
 @media only screen and (min-width: 1418px) {
   .artDetail {
     margin-top: -60px;
@@ -171,22 +200,5 @@ export default {
   .card-content {
     padding: 0 50px 20px 50px;
   }
-}
-
-.card {
-  position: relative;
-  margin: 0.5rem 0 1rem 0;
-  background-color: #fff;
-  -webkit-transition: -webkit-box-shadow 0.25s;
-  transition: -webkit-box-shadow 0.25s;
-  transition: box-shadow 0.25s;
-  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
-  border-radius: 2px;
-}
-
-.card {
-  border-radius: 10px;
-  box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
-    0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
 }
 </style>

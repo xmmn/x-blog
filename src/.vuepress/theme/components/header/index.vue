@@ -79,9 +79,7 @@ export default {
     background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
   }
 
-  .container {
-    margin: 0 auto;
-  }
+  
 
   .nav-wrapper {
     position: relative;
@@ -129,21 +127,5 @@ export default {
   }
 }
 
-@media only screen and (min-width: 993px) {
-  .container {
-    width: 90%;
-    max-width: 1125px;
-  }
-}
-@media only screen and (min-width: 601px) {
-  .container {
-    width: 85%;
-  }
-}
 
-@media only screen and (max-width: 601px) {
-  .container {
-    width: 95%;
-  }
-}
 </style>

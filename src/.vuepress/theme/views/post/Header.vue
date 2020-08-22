@@ -65,10 +65,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.card .card-content {
-  padding: 24px;
-  border-radius: 0 0 2px 2px;
-}
 .article-info {
   padding: 20px 30px 1px 40px;
   margin-bottom: -5px;
@@ -80,19 +76,6 @@ export default {
   margin-left: -0.75rem;
 }
 
-.s7 {
-  width: 58.3333333333%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
-}
-
-.s5 {
-  width: 41.6666666667%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
-}
 
 .article-info {
   .chip {

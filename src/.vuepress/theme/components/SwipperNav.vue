@@ -1,10 +1,22 @@
 <template>
   <div class="cls" :style="{height: `${height}px`, zIndex: isPost? 0: 1}">
-    <component v-if="slider" :is="slider" animation="fade" :style="{height: `${height}px`}">
-      <component v-if="sliderItem" :is="sliderItem" v-for="(slide, index) in sliders" :key="index">
-        <div class="cover item" :class="slide.classes">sdf</div>
+    <template v-if="!isPost">
+      <component v-if="slider" :is="slider" animation="fade" :style="{height: `${height}px`}">
+        <component
+          v-if="sliderItem"
+          :is="sliderItem"
+          v-for="(slide, index) in sliders"
+          :key="index"
+        >
+          <div class="bg-cover item" :class="slide.classes">sdf</div>
+        </component>
       </component>
-    </component>
+    </template>
+    <div
+      v-else
+      class="bg-cover"
+      :style="{backgroundImage:`url(${cover})`, height: `100%`, width: `100%`}"
+    ></div>
   </div>
 </template>
 
@@ -38,7 +50,6 @@ export default {
     sliders() {
       let idSources = [0, 1, 2, 3, 4, 5, 6];
       let ids = [...idSources];
-      let colors = ["red", "amber", "purple"];
       return this.banners.map((item) => {
         if (!ids.length) {
           ids = [...idSources];
@@ -46,12 +57,15 @@ export default {
         let id = ids[randomNum(0, ids.length - 1)];
         ids = ids.filter((item) => item !== id);
         return {
-          classes: [colors[randomNum(0, 2)], `banner${id + 1}`],
+          classes: [`banner${id + 1}`],
         };
       });
     },
     isPost() {
       return this.$frontmatter.isPost;
+    },
+    cover() {
+      return this.$frontmatter.cover;
     },
   },
   created() {
@@ -79,7 +93,8 @@ export default {
   margin-top: -64px;
 }
 
-.cover {
+.bg-cover {
+  background-position: center center;
   height: 100%;
   width: 100%;
   background-size: cover;
@@ -91,48 +106,6 @@ export default {
   top: 0;
   left: 0;
   z-index: 0;
-}
-
-.red:before,
-.red:after {
-  background-color: #f44336 !important;
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: block;
-  left: 0;
-  top: 0;
-  content: "";
-  opacity: 0.3;
-}
-
-.amber:before,
-.amber:after {
-  background-color: #ffc107 !important;
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: block;
-  left: 0;
-  top: 0;
-  content: "";
-  opacity: 0.3;
-}
-
-.purple:before,
-.purple:after {
-  background-color: #9119f3 !important;
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: block;
-  left: 0;
-  top: 0;
-  content: "";
-  opacity: 0.3;
 }
 
 .banner1 {

@@ -1,22 +1,17 @@
 ---
 view: post
 isPost: true
-lang: en                              # Lang is required
-author: ktquez
 title: My First post
-description: 
-excerpt: 
-cover: false                          # Leave false if the post does not have cover image, if there is set to true
-coverAlt: 
-demo: 
 categories:
-  - vuejs
+  - label: vuejs
+    path: /vue/index.html
 tags: 
-  - vuejs
-  - vuepress
-  - static site
+  - label: vuejs
+    path: /vue/index.html
+  - label: javascript
+    path: /js/index.html
 created_at: 2018-08-22 09:00
-updated_at: 2018-08-22 09:00
+cover: http://static.blinkfox.com/20181124-design.jpg 
 meta:                                 # If you have cover image
   - property: og:image
     content: /images/posts/my-first-post.png  

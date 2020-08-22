@@ -3,6 +3,8 @@
     <div class="main-content col s12 m12 l9">
       <div od="artDetail" class="artDetail">
         <div class="card">
+          <post-header :textlen="textlen" />
+          <hr class="clearfix" />
           <div class="card-content">
             <div class="articleContent" id="articleContent">
               <Content></Content>
@@ -14,12 +16,17 @@
   </div>
 </template>
 <script>
+import PostHeader from "@theme/views/post/Header.vue";
 export default {
-  mounted() {
-    import("@theme/public/libs/jquery/jquery.min.js").then((module) => {
-      let $ = module.default;
-      $("pre").wrap('<div class="code-area" style="position: relative"></div>');
-
+  components: { PostHeader },
+  data() {
+    return {
+      textlen: 0,
+    };
+  },
+  methods: {
+    // 添加代码赋值功能
+    addCopyfn($) {
       var $copyIcon = $(
         '<i class="fas fa-copy code_copy" title="复制代码" aria-hidden="true"></i>'
       );
@@ -94,7 +101,8 @@ export default {
         copy(text, this);
         selection.removeAllRanges();
       });
-
+    },
+    addLangfn($) {
       var $highlight_lang = $('<div class="code_lang" title="代码语言"></div>');
 
       $("pre").before($highlight_lang);
@@ -115,7 +123,8 @@ export default {
 
         $(this).siblings(".code_lang").text(lang_name);
       });
-
+    },
+    addExpandfn($) {
       var $code_expand = $(
         '<i class="fas fa-angle-up code-expand" aria-hidden="true"></i>'
       );
@@ -130,6 +139,17 @@ export default {
           $(this).parent().addClass("code-closed");
         }
       });
+    },
+  },
+
+  mounted() {
+    this.textlen = this.$el.innerText.length;
+    import("@theme/public/libs/jquery/jquery.min.js").then((module) => {
+      let $ = module.default;
+      $("pre").wrap('<div class="code-area" style="position: relative"></div>');
+      this.addCopyfn($);
+      this.addLangfn($);
+      this.addExpandfn($);
     });
   },
 };
@@ -145,10 +165,6 @@ export default {
 
 .card-content {
   padding: 0 15px 20px 18px;
-}
-
-.articleContent {
-  padding-top: 20px;
 }
 
 @media only screen and (min-width: 993px) {

@@ -1,5 +1,3 @@
 ---
-view: Post
+view: home
 ---
-
-:tada: :100:
